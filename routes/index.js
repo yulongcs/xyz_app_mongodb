@@ -15,9 +15,12 @@ router.route("/login").get(function(req,res){    // 到达此路径则渲染logi
 	 //这里的User就是从model中获取user对象，通过global.dbHandel全局方法（这个方法在app.js中已经实现)
 	var User = global.dbHandel.getModel('user');  
 	var uname = req.body.uname;				//获取post上来的 data数据中 uname的值
-	var urandomCode = req.body.randomCode;
-	console.log(urandomCode);
-	console.log("sesson code：" + req.session.checkcode);
+	var urandomCode = req.body.urandomCode;
+	if(urandomCode != req.session.checkcode){
+		req.session.error = '验证码不正确';
+		return res.send(404);
+	}
+	
 	User.findOne({name:uname},function(err,doc){   //通过此model以用户名的条件 查询数据库中的匹配信息
 		if(err){ 										//错误就返回给原post处（login.html) 状态码为500的错误
 			res.send(500);
@@ -48,13 +51,16 @@ router.route("/register").get(function(req,res){    // 到达此路径则渲染r
 	var User = global.dbHandel.getModel('user');
 	var uname = req.body.uname;
 	var upwd = req.body.upwd;
+	
 	User.findOne({name: uname},function(err,doc){   // 同理 /login 路径的处理方式
+		debugger;
 		if(err){ 
 			res.send(500);
 			req.session.error =  '网络异常错误！';
 			console.log(err);
 		}else if(doc){ 
 			req.session.error = '用户名已存在！';
+			console.log(req.session.error);
 			res.send(500);
 		}else{ 
 			User.create({ 							// 创建一组user对象置入model
@@ -71,6 +77,7 @@ router.route("/register").get(function(req,res){    // 到达此路径则渲染r
                   });
 		}
 	});
+	debugger;
 });
 
 /* GET home page. */

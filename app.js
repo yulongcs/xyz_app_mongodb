@@ -6,25 +6,25 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 //文件上传下载中间件
 var multiparty = require('connect-multiparty');
+var mongoose = require('mongoose');
 
 //后端处理逻辑
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-//采用connect-mongodb中间件作为Session存储
+//采用connect-mongo中间件作为Session存储
 var session = require('express-session');
 var Settings = require('./database/settings');
 var MongoStore = require('connect-mongo')(session);
 var db = require('./database/msession');
 
 global.dbHandel = require('./database/dbHandel');
-
+global.db = mongoose.connect(Settings.URL);
 var app = express();
 
 // 设置视图模版以及路径
 app.set('views', path.join(__dirname, 'views'));
 app.engine("html",require("ejs").__express); // or   app.engine("html",require("ejs").renderFile);
-//app.set("view engine","ejs");
 app.set('view engine', 'html');
 
 //装载中间件
@@ -44,22 +44,16 @@ app.use(session({
     saveUninitialized: false, // don't create session until something stored
     resave: false, //don't save session if unmodified
     store: new MongoStore({
-    url: Settings.URL,
-    touchAfter: 24 * 3600 // time period in seconds
+		username: Settings.USERNAME,
+        password: Settings.PASSWORD,
+        url: Settings.URL,
+		db: db,
+        touchAfter: 24 * 3600 // time period in seconds
     })
 }));
 
 //静态文件存放的根路径
 app.use(express.static(path.join(__dirname, 'public')));
-
-//请求路由转发设置
-app.use('/', routes);  // 即为为路径 / 设置路由
-app.use('/users', users); // 即为为路径 /users 设置路由
-app.use('/login', routes); // 即为为路径 /login 设置路由
-app.use('/register', routes); // 即为为路径 /register 设置路由
-app.use('/home', routes); // 即为为路径 /home 设置路由
-app.use("/logout", routes); // 即为为路径 /logout 设置路由
-app.use("/checkcode", routes);
 
 app.use(function(req,res,next){ 
 	res.locals.user = req.session.user;
@@ -71,6 +65,15 @@ app.use(function(req,res,next){
 	}
 	next();
 });
+
+//请求路由转发设置
+app.use('/', routes);  // 即为为路径 / 设置路由
+app.use('/users', users); // 即为为路径 /users 设置路由
+app.use('/login', routes); // 即为为路径 /login 设置路由
+app.use('/register', routes); // 即为为路径 /register 设置路由
+app.use('/home', routes); // 即为为路径 /home 设置路由
+app.use("/logout", routes); // 即为为路径 /logout 设置路由
+app.use("/checkcode", routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
