@@ -21,8 +21,7 @@ app.use(session({
 	}
 }));
 // view engine setup
-app.use(express.static(path.join(__dirname, '')));//设置网站根目录
-app.set('views', path.join(__dirname, './app/views'));
+app.set('views', path.join(__dirname, 'views'));
 app.engine("html",require("ejs").__express); // or   app.engine("html",require("ejs").renderFile);
 //app.set("view engine","ejs");
 app.set('view engine', 'html');
