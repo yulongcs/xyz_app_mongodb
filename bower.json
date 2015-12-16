@@ -1,0 +1,24 @@
+{
+  "name": "xyz_app",
+  "description": "xyz web app",
+  "main": "./bin/www",
+  "authors": [
+    "yulongcs <yulongcs@qq.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/yulongcs/xyz_app_mongodb",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.6"
+  }
+}
