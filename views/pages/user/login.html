@@ -1,276 +1,84 @@
-
-
-
-<!DOCTYPE HTML>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>登录站酷 - 站酷 (ZCOOL)</title>
-    <meta name="keywords" content="设计,设计师,设计网站,设计社区,设计交流,中国原创,原创,原创作品,创意,design,designer,平面设计,UI设计,GUI,网页设计,网站设计,插画,动漫,摄影,经验,教程,站酷,站酷网,ZCOOL,站酷移动版" />
-    <meta name="description" content="站酷（ZCOOL），中国最具人气的设计师互动平台，300万设计师聚集地。致力于打造伴随设计创意群体学习、交流、就业、交易、创业各个成长环节的生态体系。站酷，让设计更有价值，与创意群体一同进步。 " />
-    
-
-
-
-
-<meta charset="utf-8" content="text/html" http-equiv="content-type">
-<meta http-equiv="Cache-Control" content="max-age=3600">
-<meta name="MobileOptimized" content="240">
-<meta name="format-detection" content="telephone=no">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-<script type="text/javascript" src="http://static.zcool.com.cn/scripts/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="http://static.zcool.com.cn/v3.5.151215.0/zcool/client/js/TouchSlide.1.1.js"></script>
-
-<script type="text/javascript" src="http://static.zcool.com.cn/v3.5.151215.0/zcool/client/js/main.js"></script>
-<script type="text/javascript" src="http://static.zcool.com.cn/passport/scripts/passport-v1.0.3.js"></script>
-
-<!-- 登录相关的js,这个不是passport上面的那个passport.js -->
-<script src="http://static.zcool.com.cn/v3.5.151215.0/zcool/js/passport.js"></script>
-
-<link href="http://static.zcool.com.cn/v3.5.151215.0/zcool/client/css/style.css" rel="stylesheet" type="text/css" />
-
-<script>
-
-var had_login_nosyn = false;//已经登录,不需要同步
-
-if(userCookieUID <= 0 ){
- 	getPassportECFromWWW({login:hadLoginFromPassport,complete:printUnloginHTML});
-}else{
-	 
-}
-
-function hadLoginFromPassport(){
-	if(isLogon()){
-		had_login_nosyn=true;
-		location = location;
-	}
-}
-
-function printUnloginHTML(){
-	
-}
-function getPassportECFromWWW(cb){
-	if(cb.maindomain == '' || cb.maindomain == undefined){
-		cb.maindomain = 'zcool.com.cn';
-	}
-	if ($z){
-		$z.getServerCookie('http://' + 'passport.zcool.com.cn',function (data){
-			if (data.passportServerEc != null && data.passportServerEc.length > 0){
-				//alert(data.passportServerEc);
-				var loginUrl = "http://www."+cb.maindomain+"/login_cb?isajax=true&TOKEN=" + data.passportServerEc + "&jsonpCallback=?" ;
-				$.ajax({
-					url:loginUrl,
-					dataType:"jsonp",
-					success:function (da){
-						//alert(da);
-						if (da && da.success=="true"){
-							userCookieUID=da.mid;
-							userCookieUserDomain=da.domain;
-							userCookieUserFace="/"+da.facepath+"/" + da.facename;
-							userCookieLoginname=da.username;
-							if(cb.login){
-								cb.login(da);
-							}
-						}
-					},
-					complete:function(da){
-						if(cb.complete){
-								cb.complete(da);
-						}
-					}
-					
-				});
-			}else{
-				if(cb.complete){
-					cb.complete();
-				}
-			}
+<% include ../../includes/head.html %>
+	<div class="containBox">
+	    <% include ../../includes/header.html %>
+	    <%- message %>
+		<form class="form-horizontal" role="form" method="post" onsubmit="return false">
+			<fieldset>
+				<legend></legend>
+				<div class="panel panel-default">
+				<div class="panel-heading">
+					<p class="tc">请先登录</p>
+				</div>
+				<div class="panel-body m15">
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">
+						<span class="glyphicon glyphicon-user"></span>
+						</span>
+						<input type="text" class="form-control" id="username" name="username" placeholder="请输入用户名" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">
+						<span class="glyphicon glyphicon-lock"></span>
+						</span>
+						<input type="text" class="form-control" id="password" name="password" placeholder="请输入密码" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">
+						<span class="glyphicon glyphicon-lock"></span>
+						</span>
+						<input type="text" class="form-control" id="randomCode" name="randomCode" required>
+						<img id="randomCodeImg" src="/checkcode" onclick="reloadCodeImage()" />
+					</div>
+				</div>
+				<div class="form-group">
+						<button type="submit" class="btn btn-primary btn-block" id="login0">登录</button>
+				</div>
+				<div class="form-group">
+						<button type="button" class="btn btn-info col-sm-2 col-sm-offset-10" id="register0">注册</button>
+				</div>
+				</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+<% include ../../includes/script.html %>
+	<script type="text/javascript">
+	$(function(){ 
+		$("#register0").click(function(){ 
+			location.href = 'register';
 		});
-	}
-}
-
-$z.getUserSession('http://' + 'passport.zcool.com.cn',function(data){
-	if(data.userSession != null && data.userSession.length > 0){
-		//读session oldSession 上次记录的用户session
-		var oldSession = $.cookie('PPSESSION');
-		if(oldSession != data.userSession){//如果客户端session和服务器端的session不一致则客户端更新session同时退出登录
-			//写session data.userSession;先指定30天
-			$.cookie('PPSESSION', data.userSession,{ domain:'zcool.com.cn',expires: 30 });
-			logout();
-		}
-	}
-})
-
-</script>
-
-    
-    
-</head>
-<body>
-<header class="mt-40 mb-20  text-c  logo-black"> 
-
-	<a href="/"> <img src="http://static.zcool.com.cn/v3.5.151215.0/zcool//client/image/logo_black.png" /> </a>
-</header>
-
-<!--  login module start -->
-<div class="pd-20">
-  <input class="radius-t input-text input-black" type="text" value="" placeholder="用户名/手机号/电子邮箱" name="user">
-  <input class="mt-1 radius-b input-text input-black " type="password" value="" placeholder="密码" name="pass">
-  
-  <div id="vcode" class="pos-r cl" style=" display: none; ">
-      <input id="randomCode" name="randomCode" type="text" class="input-text input-black mt-30 radius-tl-bl verifyCode-iput" tabindex="3" style="width:80%;">
-      <img src="" id="randomCodeImg" onclick="reloadImage()" width="126" class="radius-tr-br pos-a verifyCode" style="height: 45px; vertical-align: middle;" tabindex="4">
-  </div>
-  <div class="mt-20 c-999">
-    <input name="autolog" type="checkbox" checked="checked" value="1" id="autolog" tabindex="3" /> 下次自动登录
-  </div>
-  
-  <input class="btn btn-orange btn-block radius mt-20" type="submit" value="登录" id="dlbtn"/>
-  
-  <a href="http://passport.zcool.com.cn/wap_reg.do?appId=1006" class="mt-20 block text-l l loginUrl">立即注册</a> 
-  <a href="http://passport.zcool.com.cn/wap_getpassword.do?appId=1006" class="mt-20  block text-r r loginUrl">忘记密码？</a> 
-</div>
-<!--  login module end -->
-
-</body>
-<script type="text/javascript">
-$(function() {
-	$(".btn").click(function() {
-// 		Huimodal_alert("您输入的账号不存在",1500);
-		doLogin();
-	})
-})
-
-var remainRetyTimes = 3;
-
-
-function submit() {
-	$('#loginform').submit();
-}
-
-function doLogin() {
-	var username = $.trim($('input[name=user]').val());
-	var password = $.trim($('input[name=pass]').val());
-	var randomCode = $('#randomCode').val();
-	$("#autolog").val();
-	if (username.length == 0 || password.length == 0) {
-		Huimodal_alert("用户名和密码都必须填写", 1500);
-		return false;
-	}
-
-	var remember = "0";
-	if ($("#autolog").prop('checked')) {
-		remember = "1";
-	}
-	$("#dlbtn").val("登录中...");
-	$("#dlbtn").attr("disabled", "true");
-	$("#dlbtn").addClass("btn-gray").removeClass("btn-orange");
-	$z.loginActive('1006', username, password, remember,
-			randomCode, callback, 'http://m.zcool.com.cn/', 'http://passport.zcool.com.cn',
-			'http://m.zcool.com.cn/login_cb');
-	
-	if(remainRetyTimes > 1){
-		setTimeout(function(){
-// 			doLogin();
-// 			remainRetyTimes --;
-		}, 9000);
-	}else{
-		setTimeout(function(){
-// 			Huimodal_alert("登录失败,请稍后再试.", 1500);
-// 			$("#dlbtn").val("登录");
-// 			$("#dlbtn").removeAttr("disabled");
-// 			$("#dlbtn").addClass("btn-orange").removeClass("btn-gray");
-		}, 9000);
-	}
-	return false;
-}
-
-function callback(data) {
-	$("#dlbtn").val("登录");
-	$("#dlbtn").removeAttr("disabled");
-	$("#dlbtn").addClass("btn-orange").removeClass("btn-gray");
-	if (data.result) {
-		// 登录成功
-		// $.cookie('zcool.login.showcode', null);
-		if (data.repeatLogin) {
-			if (data.repeat_account == "ERR_ANOTHER_ACCOUNT") { // 重复登录（密码正确）,且前后登录账号不一样
-				$z.repeatLoginLogout('http://m.zcool.com.cn/logout.do',
-						'1006', 'http://passport.zcool.com.cn',
-						false);
-				setTimeout(function() {
-					location.href = data.repeatRedirectUrl;
-				}, 1000);
-			} else if (data.repeat_account == "ERR_SAME_ACCOUNT") {// 重复登录（密码正确）,且前后登录账号一样
-				bfdologincb(data, data.repeatRedirectUrl);
-			}
-		} else {
-			bfdologincb(data, data.redirectUrl);
-		}
-	} else {
-		if (data.code == 'ACCOUNT.LACK.CAPTCHA') {
-			if (!data.residualTryNum && data.residualTryNum != 0) {
-				Huimodal_alert(data.msg, 1500)
-			} else if (data.residualTryNum == 0) {
-				Huimodal_alert("您的账号由于密码累计输错五次已被锁定，重置密码或两小时后自动解锁", 2500);
-			} else {
-				Huimodal_alert("用户名或密码错误,还有" + data.residualTryNum + "次尝试机会", 1500);
-			}
-		} else if ("CAPTCHA.IS.ERROR" == data.code) {
-			Huimodal_alert(data.msg, 1500);
-		} else {
-			Huimodal_alert(data.msg, 1500);
-		}
-		if ("ACCOUNT.IS.NOT.VERFIED.CODE" == data.code) {
-			location.href = "http://passport.zcool.com.cn/verifyEmail.do?active=0&name="
-					+ $('#user').val() + "&appId=1006";
-		} else if ("ACCOUNT.LACK.CAPTCHA" == data.code
-				|| "CAPTCHA.IS.ERROR" == data.code) {
-			$('#vcode').show();
-			reloadImage();
-		}
-	}
-}
-function bfdologincb(data, url) {
-	if (data.active) {
-		$z.getUserSession('http://' + 'passport.zcool.com.cn',function(sessionData){
-			if(sessionData.userSession != null && sessionData.userSession.length > 0){
-				//写session data.userSession;先指定30天
-				$.cookie('PPSESSION', sessionData.userSession,{ domain:'zcool.com.cn',expires: 30 });
-			}
-		})
-		
-		if (data.passNum > 0) {
-			dologincb(url);
-		} else {
-			Huimodal_alert("密码过于简单", 1500);
-			//window.location.href = "http://passport.zcool.com.cn/to_modify_pwd.do?appId=1006&service=http://www.zcool.com.cn&appLogin=http://m.zcool.com.cn/tologin.do";
-			dologincb(url);
-		}
-	} else {
-		window.location.href = "http://passport.zcool.com.cn/verifyEmail.do?active=0&name="
-				+ $('#user').val() + "&appId=1006";
-	}
-}
-function dologincb(url) {
-	$.getJSON(url + "&jsonpCallback=?", {
-		"isajax" : "true"
-	}, function(data) {
-		if (data.success == 'true') {
-			window.location.href = data.from;
-		} else {
-			if (data.errorCode == 4) {
-				window.location.href = url;
-			} else {
-				Huimodal_alert(data.errorMsg, 1500);
-			}
-		}
+		$("#login0").click(function(){ 
+			var username = $("#username").val();
+			var password = $("#password").val();
+			var randomCode = $("#randomCode").val();
+			var data = {"uname":username,"upwd":password,"urandomCode":randomCode};
+			$.ajax({ 
+				url:'/login',
+				type:'post',
+				data: data,
+				success: function(data,status){ 
+					if(status == 'success'){ 
+						location.href = 'home';
+					}
+				},
+				error: function(data,status){		
+					if(status == 'error'){ 
+						location.href = 'login';
+					}
+				}
+			});
+		});
 	});
-}
+	
+	function reloadCodeImage(){
+	    var t=new Date().valueOf();
+		$("#randomCodeImg").attr("src", "/checkcode?t=" + t);
+	}
+	
+	</script>
 
-function reloadImage() {
-	var t = new Date().valueOf();
-	$('#randomCodeImg').attr('src',
-			'http://passport.zcool.com.cn/loginRandomImg.jpg?t=' + t)
-}
-</script>
-</html>
