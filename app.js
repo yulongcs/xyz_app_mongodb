@@ -61,7 +61,7 @@ app.use(function(req,res,next){
 	delete req.session.error;
 	res.locals.message = "";
 	if(err){ 
-		res.locals.message = '<div class="alert alert-danger" style="margin-bottom:20px;color:red;">'+err+'</div>';
+		res.locals.message = err;
 	}
 	next();
 });

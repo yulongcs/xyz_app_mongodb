@@ -1,50 +1,48 @@
 <% include ../../includes/head.html %>
 	<div class="containBox">
 	    <% include ../../includes/header.html %>
-	    <%- message %>
-		<form class="form-horizontal" role="form" method="post" onsubmit="return false">
-			<fieldset>
-				<legend></legend>
-				<div class="panel panel-default">
-				<div class="panel-heading">
-					<p class="tc">请先登录</p>
-				</div>
-				<div class="panel-body m15">
-				<div class="form-group">
-					<div class="input-group">
-						<span class="input-group-addon">
-						<span class="glyphicon glyphicon-user"></span>
-						</span>
-						<input type="text" class="form-control" id="username" name="username" placeholder="请输入用户名" required>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="input-group">
-						<span class="input-group-addon">
-						<span class="glyphicon glyphicon-lock"></span>
-						</span>
-						<input type="text" class="form-control" id="password" name="password" placeholder="请输入密码" required>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="input-group">
-						<span class="input-group-addon">
-						<span class="glyphicon glyphicon-lock"></span>
-						</span>
-						<input type="text" class="form-control" id="randomCode" name="randomCode" required>
-						<img id="randomCodeImg" src="/checkcode" onclick="reloadCodeImage()" />
-					</div>
-				</div>
-				<div class="form-group">
-						<button type="submit" class="btn btn-primary btn-block" id="login0">登录</button>
-				</div>
-				<div class="form-group">
-						<button type="button" class="btn btn-info col-sm-2 col-sm-offset-10" id="register0">注册</button>
-				</div>
-				</div>
-				</div>
-			</fieldset>
+		<% include ../../includes/navigation.html %>
+		<!-- login module start -->
+		<div class="mt-20 pd-20 bg-fff">
+		    <form class="form-horizontal" role="form" method="post" onsubmit="return false">
+			<p class="callback-has-error mb-10">
+				<%- message %>
+			</p>
+			<div class="xyz-list hastopline">
+			    <ul>
+	                <li class="cl">
+					    <span class="th">
+						    密码
+					    </span>
+					    <span class="td">
+						    <input type="text" id="username" name="username" placeholder="请输入昵称、手机号" required>
+					    </span>
+					</li>
+	                <li class="cl">
+					    <span class="th">
+						    验证码
+					    </span>
+					    <span class="td">
+						    <input type="password" id="password" name="password" placeholder="请输入密码" required>
+					    </span>
+					</li>
+					<li class="cl">
+					    <span class="th">
+						    用户名
+					    </span>
+					    <span class="td pos-r">
+						    <input type="text" class="pr-80" id="randomCode" name="verifyCode" placeholder="验证码"  required>
+						    <img class="pos-a verifyCode" id="randomCodeImg" src="/checkcode" onclick="reloadCodeImage()" />
+					    </span>
+					</li>
+				</ul>
+            </div>
+			<input id="login0" class="btn btn-green btn-block radius mt-20" type="submit" value="提交" />
+			<a href="http://passport.zcool.com.cn/wap_reg.do?appId=1006" class="mt-20 block text-l l link">立即注册</a>	
+			<a href="http://passport.zcool.com.cn/wap_getpassword.do?appId=1006" class="mt-20  block text-r r link">忘记密码？</a>
 		</form>
+		</div>
+		<!-- login module end -->	
 	</div>
 <% include ../../includes/script.html %>
 	<script type="text/javascript">
