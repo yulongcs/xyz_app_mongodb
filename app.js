@@ -68,12 +68,8 @@ app.use(function(req,res,next){
 
 //请求路由转发设置
 app.use('/', routes);  // 即为为路径 / 设置路由
-app.use('/users', users); // 即为为路径 /users 设置路由
-app.use('/login', routes); // 即为为路径 /login 设置路由
-app.use('/register', routes); // 即为为路径 /register 设置路由
-app.use('/home', routes); // 即为为路径 /home 设置路由
-app.use("/logout", routes); // 即为为路径 /logout 设置路由
-app.use("/checkcode", routes);
+app.use('/', users); // 即为为路径 /users 设置路由
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,17 +1,35 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <style type="text/css">
-	a{margin-left: 20px; text-decoration: none;}
-	a:hover{text-decoration: underline;}
-    </style>
-  </head>
-  <body>
-  <h1>Your name:   <%- user.name %></h1>
-    <p>Welcome to your home ~</p>
-    <p><a href="/logout">我要注销 </a>
-    </p>
-  </body>
-</html>
+<% include ../../includes/head.html %>
+	<div class="containBox">
+	    <% include ../../includes/header.html %>
+		<% include ../../includes/navigation.html %>
+		<!-- user space module start -->
+		<div class="mt-20 bg-fff">
+			<div class="xyz-list userspace">
+			    <ul>
+				    <li class="cl pl-50">
+						<a><i></i>登陆</a>
+					</li>
+	                <li class="cl pl-50">
+						<a><i class="icon-release"></i>我的发布</a>
+					</li>
+					<li class="cl pl-50">
+					    <a><i class="icon-like"></i>我的收藏</a>
+					</li>
+					<li class="cl pl-50">
+					    <a><i class="icon-changepassword"></i>密码修改</a>
+					</li>
+					<li class="cl pl-50">
+					    <a><i class="icon-info"></i>代买说明</a>
+					</li>
+					<li class="cl pl-50">
+					    <a><i class="icon-safety"></i>安全攻略</a>
+					</li>
+					<li class="cl pl-50">
+					    <a><i class="icon-advice"></i>意见反馈</a>
+					</li>
+				</ul>
+            </div>
+		</div>
+		<!-- user space module end -->	
+	</div>
+<% include ../../includes/script.html %>

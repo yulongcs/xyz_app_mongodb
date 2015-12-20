@@ -3,7 +3,7 @@
 *, *:before, *:after {box-sizing: border-box}
 body,div,p,a,table,textarea,form,input,img,ul,li,dl,dt,dd{margin:0;padding:0}
 body,th,td,button,input,select,textarea{font-family:"Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,tahoma,arial,Verdana,sans-serif,"WenQuanYi Micro Hei","\5B8B\4F53";font-size:12px;color: #333;-webkit-font-smoothing:antialiased;-moz-font-smoothing:antialiased}
-body{font-size:1rem;/*min-width:320px*/overflow-x: hidden;overflow-y: auto;}
+body{font-size:1rem;}
 input,button{font-size:1rem}
 /*去除input默认样式*/
 input[type="submit"],input[type="reset"],input[type="button"],input[type="text"],input[type="password"]{-webkit-appearance:none;outline:none;/* border-radius:0; */}
@@ -89,6 +89,7 @@ html {overflow: auto; text-size-adjust: 100%;-webkit-text-size-adjust:100%;}
 .pl-10{padding-left:10px}
 .pl-20{padding-left:20px}
 .pl-40{padding-left:40px}
+.pl-50{padding-left:50px !important}
 .pr-5{padding-right:5px}
 .pr-10{padding-right:10px}
 .pr-20{padding-right:20px}
@@ -99,6 +100,8 @@ html {overflow: auto; text-size-adjust: 100%;-webkit-text-size-adjust:100%;}
 .pd-15{padding:15px}
 .pd-20{padding:20px}
 .pd-30{padding:30px}
+
+.lh-30{line-height:30px !important;}
 
 .l-0{left:1px}
 .r-0{right:0;}
@@ -170,14 +173,21 @@ form .callback-has-error {
 
 .xyz-list{ display:block; background-color:#ffffff;}
 .xyz-list.hastopline ul:first-child{ border-top:solid 1px #01af63;}
-.xyz-list li{ padding:0 10px; border-bottom:solid 1px #01af63; font-size:16px;line-height:50px; height:50px; }
+.xyz-list li{ padding:0 10px; border-bottom:solid 1px #01af63; font-size:16px; line-height:50px;}
 .xyz-list li .th{ float:left; color:#000; width:80px; display:inline-blcok; text-align:center; border-right:1px solid #01af63; }
-.xyz-list li .td{ margin-left:80px; padding:10px 0; display:block; color:#282828; word-wrap: break-word; word-break: break-all;}
+.xyz-list li .td{ margin-left:80px; padding:8px 0; display:block; color:#282828; word-wrap: break-word; word-break: break-all;}
 .xyz-list li input{ display:block; width:100%; height:34px; padding:6px 12px; font-size:14px; line-height:1.4285; color:#555;  background-color:#fff;}
 .xyz-list li.white_box{background-color: #fff;padding: 10px 0;}
 /*验证码*/
 .verifyCode-iput{width: 100%;}
 .verifyCode{top: 12px; right: -1px;width: 80px;text-align: center; border:1px solid #01af63; border-radius:5px; background-color:#fff; }
+.phoneCode{
+	top: 12px; right: -1px;width: 100px; line-height:normal; text-align: center; border:1px solid #01af63; border-radius:5px; background-color:#fff;
+}
+
+.userspace i {
+	width:21px; height:21px; display:inline-block; background-size:21px; margin:-3px 5px;
+}
 
 .nav-wrap{
 	position:fixed;
@@ -253,6 +263,26 @@ form .callback-has-error {
 }
 .nav-item-mes.curr i {
 	background-image:url(../image/icons/icon_mes_active.png);
+}
+
+.icon-like{
+    background-image: url(../image/icons/icon_like.png);
+}
+
+.icon-changepassword{
+    background-image: url(../image/icons/icon_changepassword.png);
+}
+
+.icon-info{
+    background-image: url(../image/icons/icon_info.png);
+}
+
+.icon-safety{
+    background-image: url(../image/icons/icon_safety.png);
+}
+
+.icon-advice{
+    background-image: url(../image/icons/icon_advice.png);
 }
 
 .iconpic{display:inline-block; vertical-align:text-top;width:16px; height:16px;background-repeat: no-repeat; background-position:0 center}
