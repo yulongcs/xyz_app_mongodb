@@ -88,6 +88,20 @@ router.route("/forgetpassword").get(function(req,res){    // 到达此路径则�
 
 });
 
+/* GET changepassword page. */
+router.route("/changepassword").get(function(req,res){    // 到达此路径则渲染register文件，并传出title值供 register.html使用
+	res.render("./pages/user/changepassword",{title:'修改密码'});
+}).post(function(req,res){ 
+
+});
+
+/* GET suggest page. */
+router.route("/suggest").get(function(req,res){    // 到达此路径则渲染register文件，并传出title值供 register.html使用
+	res.render("./pages/user/suggest",{title:'您的意见'});
+}).post(function(req,res){ 
+
+});
+
 /* GET logout page. */
 router.get("/logout",function(req,res){    // 到达 /logout 路径则登出， session中user,error对象置空，并重定向到根路径
 	req.session.user = null;

@@ -12,7 +12,7 @@ input{outline-style: none;border: none;}
 
 li{list-style:none;text-indent:0}
 img,a img{border:0;max-width:100%;height:auto}
-h1, h2, h3, h4, h5, h6{font-weight:400; margin:0px;padding:10px 0;clear:both; letter-spacing:-1px;}
+h1, h2, h3, h4, h5, h6{font-weight:400; margin:0px;padding:10px 0}
 h1{ font-size:30px;}
 h2{ font-size:26px;}
 h3{ font-size:22px;}
@@ -76,20 +76,20 @@ html {overflow: auto; text-size-adjust: 100%;-webkit-text-size-adjust:100%;}
 .mr-5{margin-right:5px}
 .mr-10{margin-right:10px}
 .mr-15{margin-right:15px}
-.mr-20{margin-right:20px}
+.mr-20{margin-right:20px!important}
 .mr-30{margin-right:30px}
 .mt-50{ margin-top:50px}
 .pt-5{padding-top:5px}
-.pt-10{padding-top:10px}
+.pt-10{padding-top:10px !important}
 .pt-20{padding-top:20px}
 .pb-5{padding-bottom:5px}
-.pb-10{padding-bottom:10px}
+.pb-10{padding-bottom:10px !important}
 .pb-20{padding-bottom:20px}
 .pl-5{padding-left:5px}
-.pl-10{padding-left:10px}
-.pl-20{padding-left:20px}
-.pl-40{padding-left:40px}
-.pl-50{padding-left:50px !important}
+.pl-10{padding-left:10px!important}
+.pl-20{padding-left:20px!important}
+.pl-40{padding-left:40px!important}
+.pl-50{padding-left:50px!important}
 .pr-5{padding-right:5px}
 .pr-10{padding-right:10px}
 .pr-20{padding-right:20px}
@@ -101,7 +101,7 @@ html {overflow: auto; text-size-adjust: 100%;-webkit-text-size-adjust:100%;}
 .pd-20{padding:20px}
 .pd-30{padding:30px}
 
-.lh-30{line-height:30px !important;}
+.lh-30{line-height:30px!important;}
 
 .l-0{left:1px}
 .r-0{right:0;}
@@ -131,7 +131,10 @@ html {overflow: auto; text-size-adjust: 100%;-webkit-text-size-adjust:100%;}
     background-color: transparent; 
 }
 
-
+body{ background-color: #fff;}
+.containBox{
+	left: 0; height: 100%;background-color: #eee; position: relative;z-index:100; top:0px;
+}
 
 form .validate-has-error, form label.error {
   display: block !important;
@@ -143,6 +146,8 @@ form .validate-has-error, form label.error {
 form .callback-has-error {
   color: red !important; 
 }
+.btn{display:inline-block;padding:8px 12px;text-align: center;white-space: nowrap;vertical-align: middle; border:none; font-size:20px}
+.btn-block{display:block; width:100%}
 /*灰色*/
 .btn-default{height: 45px;background-color:#ddd;border-color:#ddd; }
 .btn-default:hover,
@@ -161,7 +166,7 @@ form .callback-has-error {
 :-moz-placeholder {color:#b3b3b3}/* Mozilla Firefox 4 to 18 */
 ::-moz-placeholder {color:#b3b3b3}/* Mozilla Firefox 19+ */
 :-ms-input-placeholder {color:#b3b3b3}/* Internet Explorer 10+ */
-.input-text,.textarea{-webkit-appearance:none;outline:none;  -webkit-tap-highlight-color: transparent;resize:none; width:100%; padding:10px; font-size:16px; line-height:1.6; border:none; background-color:#fff}
+.input-text,.textarea{-webkit-appearance:none;outline:none;  -webkit-tap-highlight-color: transparent;resize:none; width:100%; padding:10px; font-size:16px; line-height:1.6; border:1px solid #ccc; background-color:#fff; overflow:auto;}
 .input-black{ display:block}
 
 /*header*/
@@ -188,6 +193,14 @@ form .callback-has-error {
 .userspace i {
 	width:21px; height:21px; display:inline-block; background-size:21px; margin:-3px 5px;
 }
+
+/*用户中心-首页*/
+.user-info{ background-color:#fff; position:relative}
+.user-info .picbox,.user-info .picbox img{ width:60px; height:60px}
+.user-info .picbox{ float:left}
+.user-info .textbox{ margin-left:70px}
+.user-info .textbox h2{ font-size:20px; margin:0; line-height:22px; white-space:nowrap; overflow:hidden; margin-top:20px;}
+
 
 .nav-wrap{
 	position:fixed;
@@ -234,34 +247,34 @@ form .callback-has-error {
 	width:21px;
 	background-size:21px;
 }
-.nav-item-release i {
+.icon-release{
 	background-image:url(../image/icons/icon_release.png);
 }
-.nav-item-release.curr i {
+.curr .icon-release{
 	background-image:url(../image/icons/icon_release_active.png);
 }
-.nav-item-purchase i {
+.icon-purchase {
 	background-image:url(../image/icons/icon_purchase.png);
 }
-.nav-item-purchase i.curr {
+.curr .icon-purchase{
 	background-image:url(../image/icons/icon_purchase_active.png);
 }
-.nav-item-homepage i {
+.icon-homepage {
 	background-image:url(../image/icons/icon_homepage.png);
 }
-.nav-item-homepage i .curr{
+.curr .icon-homepage{
 	background-image:url(../image/icons/icon_homepage_active.png);
 }
-.nav-item-exchange i {
+.icon-exchange {
 	background-image:url(../image/icons/icon_exchange.png);
 }
-.nav-item-exchange.curr i {
+.curr .icon-exchange{
 	background-image:url(../image/icons/icon_exchange_active.png);
 }
-.nav-item-mes i {
+.icon-mes {
 	background-image:url(../image/icons/icon_mes.png);
 }
-.nav-item-mes.curr i {
+.curr .icon-mes{
 	background-image:url(../image/icons/icon_mes_active.png);
 }
 
@@ -286,6 +299,21 @@ form .callback-has-error {
 }
 
 .iconpic{display:inline-block; vertical-align:text-top;width:16px; height:16px;background-repeat: no-repeat; background-position:0 center}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -343,12 +371,8 @@ form .callback-has-error {
 .avatar.avatar-L,.avatar.avatar-L img{ width:48px; height:48px}
 .avatar.avatar-XL,.avatar.avatar-XL img{ width:64px; height:64px}
 
-.logo-black img{height: 30px;}
 
-body{ background-color: #fff;}
-.containBox{
-	left: 0; height: 100%;background-color: #eee; position: relative;z-index:100; top:0px;
-}
+
 
 
 
@@ -447,16 +471,8 @@ body.sideBox-open{ overflow: hidden;}
 /*分享页底部样式*/
 .footer{ text-align:center; background-color:#f9f9f9; padding:22px 10px;}
 .footer a{color:#999}
-/*设计师中心-首页*/
-.user-info{ background-color:#fff; position:relative}
-.user-info .picbox,.user-info .picbox img{ width:100px; height:100px}
-.user-info .picbox{ float:left}
-.user-info .textbox{ margin-left:115px}
-.user-info .textbox h1{ font-size:20px; margin:0; height:26px; line-height:22px; white-space:nowrap; overflow:hidden}
-.user-info .textbox h1 img{}
-.user-info .textbox p{ margin-top:0px}
-.user-info .signature{ height:38px; overflow:hidden; white-space:normal;text-overflow: ellipsis}
-.user-info .fans span{  display: inline-block;}
+
+
 
 .user-info2{position:relative; background:url(../image/icon-arrow-right.png) no-repeat right center; background-size:16px auto}
 .user-info2 a{ display:block}
@@ -499,8 +515,7 @@ body.sideBox-open{ overflow: hidden;}
 
 .view-more{ display:block; text-align:center; color:#666; background-color:#fff; padding:11px}
 .loadingbar{ text-align:center; color:#666; padding:11px}
-.btn{display:inline-block;padding:8px 12px;text-align: center;white-space: nowrap;vertical-align: middle; border:none; font-size:20px}
-.btn-block{display:block; width:100%}
+
 
 /*验证码60s倒计时样式*/
 .btn-secondary2{height: 45px;background-color:#01af63; border-color:#01af63}

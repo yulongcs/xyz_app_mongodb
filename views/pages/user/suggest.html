@@ -1,0 +1,18 @@
+<% include ../../includes/head.html %>
+	<div class="containBox">
+	    <% include ../../includes/header.html %>
+		<% include ../../includes/navigation.html %>
+		<!-- suggest start -->
+		<div class="mt-20 pd-20 bg-fff">
+			<form class="form-horizontal" role="form" method="post" onsubmit="return false">
+                <h4>我们都是闲余座，我们共同改进。</h4>			
+			    <textarea class="textarea" name="suggestContent" id="suggestContent" placeholder="请描述您遇到的问题或建议" style="height:160px"></textarea>
+				<p class="callback-has-error mb-10">
+				    <%- message %>
+			    </p>
+			    <input id="login0" class="btn btn-green btn-block radius mt-20" type="submit" value="提交" />
+			</form>
+		</div>
+		<!-- user space module end -->	
+	</div>
+<% include ../../includes/script.html %>
