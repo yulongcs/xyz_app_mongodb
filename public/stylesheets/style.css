@@ -131,9 +131,9 @@ html {overflow: auto; text-size-adjust: 100%;-webkit-text-size-adjust:100%;}
     background-color: transparent; 
 }
 
-body{ background-color: #fff;}
+body{ background-color: #eee;}
 .containBox{
-	left: 0; height: 100%;background-color: #eee; position: relative;z-index:100; top:0px;
+	left: 0; height: 100%; position: relative;z-index:100; top:0px; min-width:360px; max-width:540px;  margin:0 auto;
 }
 
 form .validate-has-error, form label.error {

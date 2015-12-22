@@ -88,6 +88,13 @@ router.route("/forgetpassword").get(function(req,res){    // 到达此路径则�
 
 });
 
+/* GET favorite page. */
+router.route("/favorite").get(function(req,res){    // 到达此路径则渲染register文件，并传出title值供 register.html使用
+	res.render("./pages/user/favorite",{title:'我的收藏'});
+}).post(function(req,res){ 
+
+});
+
 /* GET changepassword page. */
 router.route("/changepassword").get(function(req,res){    // 到达此路径则渲染register文件，并传出title值供 register.html使用
 	res.render("./pages/user/changepassword",{title:'修改密码'});
