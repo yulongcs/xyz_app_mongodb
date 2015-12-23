@@ -95,6 +95,13 @@ router.route("/favorite").get(function(req,res){    // 到达此路径则渲染r
 
 });
 
+/* GET my release page. */
+router.route("/myrelease").get(function(req,res){    // 到达此路径则渲染register文件，并传出title值供 register.html使用
+	res.render("./pages/user/myrelease",{title:'我的发布'});
+}).post(function(req,res){ 
+
+});
+
 /* GET changepassword page. */
 router.route("/changepassword").get(function(req,res){    // 到达此路径则渲染register文件，并传出title值供 register.html使用
 	res.render("./pages/user/changepassword",{title:'修改密码'});
