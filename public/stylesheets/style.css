@@ -55,7 +55,8 @@ html {overflow: auto; text-size-adjust: 100%;-webkit-text-size-adjust:100%;}
 
 .bg-fff{background-color: #fff}
 .bg-282828{background-color: #282828;}
-.bg-e8e8e8{background-color: #e8e8e8}
+.bg-e8e8e8{background-color: #e8e8e8;}
+.bg-02B063{background-color: #02B063;}
 
 .mt-1{margin-top:1px}
 .mt-5{margin-top:5px}
@@ -103,8 +104,10 @@ html {overflow: auto; text-size-adjust: 100%;-webkit-text-size-adjust:100%;}
 
 .lh-30{line-height:30px!important;}
 
-.l-0{left:1px}
+.t-25{top:25px;}
+.l-0{left:1px;}
 .r-0{right:0;}
+.r-20{right:20px;}
 
 .text-l{text-align:left}
 .text-r{text-align:right}
@@ -131,7 +134,7 @@ html {overflow: auto; text-size-adjust: 100%;-webkit-text-size-adjust:100%;}
     background-color: transparent; 
 }
 
-body{ background-color: #eee;}
+body{ background-color: #EEF3FA;}
 .containBox{
 	left: 0; height: 100%; position: relative;z-index:100; top:0px; min-width:360px; max-width:540px;  margin:0 auto;
 }
@@ -160,6 +163,13 @@ form .callback-has-error {
 .btn-green:focus,
 .btn-green:active,
 .btn-green.active{color:#fff;background-color:#01af63;border-color:#01af63;}
+
+.btn.cancel{
+	color:#fff;
+	background-color:#02B063;
+	font-size:12px;
+	padding:1px 5px;
+}
 
 /*设置placeholder颜色*/
 ::-webkit-input-placeholder {color:#b3b3b3}/* WebKit browsers */
@@ -200,6 +210,21 @@ form .callback-has-error {
 .user-info .picbox{ float:left}
 .user-info .textbox{ margin-left:70px}
 .user-info .textbox h2{ font-size:20px; margin:0; line-height:22px; white-space:nowrap; overflow:hidden; margin-top:20px;}
+
+.product-list .list {
+	position:relative;
+	margin: 20px 0;
+	padding: 10px 20px 20px;
+	background:#fff;
+}
+.product-list img{
+	width:300px;
+}
+
+.product-list .img3{
+	width:150px;
+	margin:0 2px 0 6px;
+}
 
 
 .nav-wrap{
