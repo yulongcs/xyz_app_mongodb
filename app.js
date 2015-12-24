@@ -12,6 +12,9 @@ var mongoose = require('mongoose');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var search = require('./routes/search');
+var buy = require('./routes/buy');
+var sales = require('./routes/sales');
+var exchange = require('./routes/exchange');
 
 //采用connect-mongo中间件作为Session存储
 var session = require('express-session');
@@ -71,6 +74,9 @@ app.use(function(req,res,next){
 app.use('/', routes);  // 即为为路径 / 设置路由
 app.use('/', users); // 即为为路径 /users 设置路由
 app.use('/', search); // 即为为路径 /search 设置路由
+app.use('/buy', buy); // 即为为路径 /buy 设置路由
+app.use('/sales', sales); // 即为为路径 /sales 设置路由
+app.use('/exchange', exchange); // 即为为路径 /exchange 设置路由
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
