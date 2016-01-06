@@ -33,6 +33,7 @@ html {
 .line-1{ border-top:solid 1px #e5e5e5}
 .line-b{border-bottom:solid 1px #e5e5e5}
 
+.w-256{width:256px;}
 
 .f-18{ font-size: 18px}
 .f-14{ font-size:14px}
@@ -217,30 +218,29 @@ form .callback-has-error {
         padding: 0 10px;
         border-bottom: solid 1px #01af63;
         font-size: 16px;
-        line-height: 50px;
     }
         .xyz-list li .th {
             float: left;
             color: #000;
             width: 80px;
+			 padding: 14px 0;
             display: inline-block;
             text-align: center;
             border-right: 1px solid #01af63;
         }
     .xyz-list li .td {
         margin-left: 79px;
-        padding: 8px 0;
+        padding: 16px 0;
         display: block;
         color: #282828;
         word-wrap: break-word;
         word-break: break-all;
         border-left: 1px solid #01af63;
     }
-        .xyz-list li input {
+        .xyz-list li input ,.xyz-list li textarea,.xyz-list li select{
             display: block;
             width: 100%;
-            height: 34px;
-            padding: 6px 12px;
+            padding: 0 12px;
             font-size: 14px;
             color: #555;
             background-color: #fff;
