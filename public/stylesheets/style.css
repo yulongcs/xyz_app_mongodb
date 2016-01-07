@@ -34,11 +34,14 @@ html {
 .line-b{border-bottom:solid 1px #e5e5e5}
 
 .w-half{width:50%;}
+.w-50 {width: 50px !important;}
 .w-60 {width: 60px !important;}
+.w-80 {width: 80px !important;}
+.w-100 { width: 100px !important; }
+.w-150 { width: 150px !important; }
 
-.h-100 {
-	height: 100px;
-}
+.h-100 { height: 100px !important; }
+
 
 .f-18{ font-size: 18px}
 .f-14{ font-size:14px}
@@ -62,7 +65,7 @@ html {
 .text-overflow {
     overflow:hidden; 
     white-space:nowrap;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis; 
 }
 
 .bg-fff{background-color: #fff}
@@ -72,6 +75,9 @@ html {
 
 .bdc-fff {
     border-color: #fff !important;
+}
+.bdc-a59783 {
+    border-color: #a59783 !important;
 }
 
 .mt-0{ margin-top: 0;}
@@ -97,6 +103,8 @@ html {
 .mr-20{ margin-right: 20px !important;}
 .mr-30{ margin-right: 30px;}
 .mt-50{ margin-top: 50px;}
+.mg-20{ margin: 20px;}
+
 .pt-0{padding-top:0 !important;}
 .pt-5{ padding-top: 5px;}
 .pt-10{ padding-top: 10px !important;}
@@ -110,10 +118,14 @@ html {
 .pl-20{ padding-left: 20px !important;}
 .pl-40{ padding-left: 40px !important;}
 .pl-50{ padding-left: 50px !important;}
-.pr-5{ padding-right: 5px;}
+.pl-60 { padding-left: 60px !important;}
+.pl-70 { padding-left: 70px !important;}
+.pr-0{ padding-right: 0 !important;;}
+.pr-5{ padding-right: 5px !important;}
 .pr-10{ padding-right: 10px;}
 .pr-20{ padding-right: 20px;}
 .pr-40{ padding-right: 40px;}
+.pr-50{ padding-right: 50px !important;}
 .pr-80{ padding-right: 80px !important;}
 .pd-5{ padding: 5px;}
 .pd-10{ padding: 10px;}
@@ -123,9 +135,11 @@ html {
 
 .lh-30{ line-height: 30px !important;}
 
+.t-18 { top: 18px; }
 .t-25{ top: 25px;}
 .l-0{ left: 1px;}
 .r-0{ right: 0;}
+.r-10 { right: 10px; }
 .r-20{ right: 20px;}
 
 .br-3{ border-radius: 3px; }
@@ -179,27 +193,25 @@ form .input-pro{
   -moz-transition: border-color 0.2s;
   -o-transition: border-color 0.2s;
   resize:none;
-  vertical-align: middle;
-  display: block;
   padding: 0;
   overflow: auto;
 }
 form .input-pro:focus{
-  outline:0px;
+  outline:0;
 }
 form select{
   position:absolute;
-  top:0px;
-  left: 0px;
+  top:18px;
+  left: 0;
   opacity: 0;
 }
 form .select-drop{
   position: absolute;
   width: 20px;
-  height: 42px;
+  height: 20px;
   background:url(../image/icons/icon_dorpdown.png) no-repeat center center;
   background-size: 70%;
-  top: 0px;
+  top: 18px;
   right: 0px;
 }
 
@@ -249,31 +261,31 @@ form .select-drop{
 	display:table;
 }
 
-.xyz-table .cell-title{
-	width:100px;
-	padding:10px 0;
-	color:#303538;
+.xyz-table .cell-title,.xyz-table .cell-input{
+	padding:17px 0;
 	vertical-align:top;
 	display:table-cell;
 }
-
-.xyz-table .divider-l{
-	border-left:1px solid #01af63;
-}
-
-.xyz-table .divider-r{
-	border-right:1px solid #01af63;
+.xyz-table .cell-title{
+	width:100px;
+	color:#303538;
 }
 
 .xyz-table .cell-input{
-	padding:10px 0;
-	display:table-cell;
 	position:relative;
+}
+
+.divider-l{
+	border-left:1px solid #01af63;
+}
+
+.divider-r{
+	border-right:1px solid #01af63;
 }
 
 .xyz-list li{
 	border-bottom: 1px solid #01af63;
-	padding:0 15px;
+	padding:0 30px;
 }
 
 
@@ -547,6 +559,17 @@ form .select-drop{
 
 .icon-advice{
     background-image: url(../image/icons/icon_advice.png);
+}
+
+.icon-telphone,.icon-message{
+	background-repeat:no-repeat;
+	background-position: 20px 12px;
+}
+.icon-telphone{
+	background-image: url(../image/icons/icon_telphone.png);
+}
+.icon-message{
+	background-image: url(../image/icons/icon_message.png);
 }
 
 .iconpic {

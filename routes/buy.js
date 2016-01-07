@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET buy page. */
 router.get("/",function(req,res){ 
-	res.render("./pages/buy/list",{title:'求购'});
+	res.render("./pages/buy/list",{title:'休闲余'});
 });
 
 
