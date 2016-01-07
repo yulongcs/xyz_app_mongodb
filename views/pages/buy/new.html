@@ -3,24 +3,72 @@
 	    <% include ../../includes/header.html %>
 		<% include ../../includes/navigation.html %>
 		<!-- buy new module start -->
-		<div class="mt-20 pb-20 bg-fff">
-			<div class="xyz-list userspace">
-			    <ul>
-				    <li class="cl">
-                        <span class="th bdc-fff">
-                            求购物：
-                        </span>
-                        <span class="td bdc-fff">
-                            <input type="text" name="name" placeholder="闲余的名称和型号（6-20字）" required />
-                        </span>
-					</li>
-	                <li class="cl">
-						<div class="w-256 l">
+		<!-- <div class="mt-20 pb-20 bg-fff">
+			<form class="form-horizontal" role="form" method="post" onsubmit="return false">
+				<div class="xyz-list">
+					<ul>
+						<li class="cl">
 							<span class="th bdc-fff">
-								分类：
+								求购物：
 							</span>
 							<span class="td bdc-fff">
-								<select hidefocus="true">
+								<input type="text" name="name" placeholder="闲余的名称和型号（6-20字）" required />
+							</span>
+						</li>
+						<li class="cl">
+							<div class="w-256 l">
+								<span class="th bdc-fff">
+									分类：
+								</span>
+								<span class="td bdc-fff">
+									<span class="input-pro select-value"></span>
+									<i class="select-drop"></i>
+									<select hidefocus="true">
+										<option value="1">居家生活</option>
+										<option selected="selected" value="2">家用电器</option>
+										<option value="3">wifi设备</option>
+										<option value="4">摄影器材</option>
+										<option value="5">服饰鞋包</option>
+										<option value="6">美妆护肤</option>
+										<option value="7">婴孕儿童</option>
+										<option value="8">宠物当家</option>
+										<option value="9">书籍问题</option>
+										<option value="10">交通工具</option>
+										<option value="11">卡券票务</option>
+										<option value="12">其他</option>
+									</select>
+								</span>
+							</div>
+							<div class="w-256 l">
+								<span class="th bdc-fff">
+									成色：
+								</span>
+								<span class="td bdc-fff">
+									<select hidefocus="true">
+									<option value="1">9成新</option>
+									<option selected="selected" value="2">8成新</option>
+									<option value="3">7成新</option>
+									<option value="4">6成新</option>
+									<option value="5">5成新</option>
+								</select>
+								</span>
+							</div>
+						</li>
+						<li class="cl">
+							<span class="th">
+								吆喝：
+							</span>
+							<span class="td">
+								<textarea class="textarea" name="details" placeholder="为你出售的宝贝吆喝几句（50字内）" style="height:160px" ></textarea>
+							</span>
+						</li>
+						<li class="cl">
+							<div class="in" style="width:50%">
+								<span class="th">
+									分类：
+								</span>
+								<span class="td">
+									<select hidefocus="true">
 									<option value="1">居家生活</option>
 									<option selected="selected" value="2">家用电器</option>
 									<option value="3">wifi设备</option>
@@ -33,71 +81,122 @@
 									<option value="10">交通工具</option>
 									<option value="11">卡券票务</option>
 									<option value="12">其他</option>
-	                             </select>
-							</span>
-						</div>
-						<div class="w-256 l">
-							<span class="th bdc-fff">
+									 </select>
+								</span>
+							</div>
+							<div class="in" style="width:50%">
+							<span class="th">
 								成色：
 							</span>
-							<span class="td bdc-fff">
+							<span class="td">
 								<select hidefocus="true">
-	                    	    <option value="1">9成新</option>
-	                    	    <option selected="selected" value="2">8成新</option>
-	                    	    <option value="3">7成新</option>
-								<option value="4">6成新</option>
-								<option value="5">5成新</option>
-	                        </select>
+									<option value="1">9成新</option>
+									<option selected="selected" value="2">8成新</option>
+									<option value="3">7成新</option>
+									<option value="4">6成新</option>
+									<option value="5">5成新</option>
+								</select>
 							</span>
-						</div>
-					</li>
-					<li class="cl">
-						<span class="th">
-						    吆喝：
-					    </span>
-					    <span class="td">
-						    <textarea class="textarea" name="details" placeholder="为你出售的宝贝吆喝几句（50字内）" style="height:160px" ></textarea>
-					    </span>
-					</li>
-					<li class="cl">
-					    <div class="in" style="width:50%">
-						    <span class="th">
-						        分类：
-					        </span>
-					        <span class="td">
-						        <select hidefocus="true">
-	                    	    <option value="1">居家生活</option>
-	                    	    <option selected="selected" value="2">家用电器</option>
-	                    	    <option value="3">wifi设备</option>
-	                    	    <option value="4">摄影器材</option>
-								<option value="5">服饰鞋包</option>
-								<option value="6">美妆护肤</option>
-								<option value="7">婴孕儿童</option>
-	                    	    <option value="8">宠物当家</option>
-								<option value="9">书籍问题</option>
-								<option value="10">交通工具</option>
-								<option value="11">卡券票务</option>
-								<option value="12">其他</option>
-	                             </select>
-					        </span>
-						</div>
-						<div class="in" style="width:50%">
-						<span class="th">
-						    成色：
-					    </span>
-					    <span class="td">
-						    <select hidefocus="true">
-	                    	    <option value="1">9成新</option>
-	                    	    <option selected="selected" value="2">8成新</option>
-	                    	    <option value="3">7成新</option>
-								<option value="4">6成新</option>
-								<option value="5">5成新</option>
-	                        </select>
-					    </span>
-						</div>
-					</li>
-				</ul>
-            </div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</form>
+		</div> -->
+		<div class="mt-20 pb-20 bg-fff">
+			<form class="form-horizontal" role="form" method="post" onsubmit="return false">
+				<div class="xyz-list">
+					<ul>
+						<li>
+							<span class="xyz-table">
+								<span class="cell-title">
+									求购物：
+								</span>
+								<span class="cell-input">
+									<input type="text" name="name" class="input-pro" placeholder="闲余的名称和型号（6-20字）" required />
+								</span>
+							</span>
+						</li>
+						<li>
+							<div class="w-half in va-m">
+								<span class="xyz-table pr-20">
+									<span class="cell-title w-60">
+										分类：
+									</span>
+									<span class="cell-input">
+										<span class="input-pro select-value"></span>
+										<i class="select-drop"></i>
+										<select class="input-pro" hidefocus="true">
+											<option value="1">居家生活</option>
+											<option selected="selected" value="2">家用电器</option>
+											<option value="3">wifi设备</option>
+											<option value="4">摄影器材</option>
+											<option value="5">服饰鞋包</option>
+											<option value="6">美妆护肤</option>
+											<option value="7">婴孕儿童</option>
+											<option value="8">宠物当家</option>
+											<option value="9">书籍问题</option>
+											<option value="10">交通工具</option>
+											<option value="11">卡券票务</option>
+											<option value="12">其他</option>
+										</select>
+									</span>
+								</span>
+							</div><!--
+							--><div class="w-half in va-m">
+								<span class="xyz-table pl-20">
+									<span class="cell-title w-60">
+										成色：
+									</span>
+									<span class="cell-input">
+										<span class="input-pro select-value"></span>
+										<i class="select-drop"></i>
+										<select class="input-pro" hidefocus="true">
+											<option value="1">9成新</option>
+											<option selected="selected" value="2">8成新</option>
+											<option value="3">7成新</option>
+											<option value="4">6成新</option>
+											<option value="5">5成新</option>
+										</select>
+									</span>
+								</span>
+							</div>
+						</li>
+						<li>
+							<span class="xyz-table">
+								<span class="cell-title w-60">
+									要求：
+								</span>
+								<span class="cell-input">
+									<textarea class="input-pro h-100" name="details" placeholder="为你出售的宝贝吆喝几句（50字内）" ></textarea>
+								</span>
+							</span>
+						</li>
+						<li>
+							<div class="w-half in va-m">
+								<span class="xyz-table pr-20">
+									<span class="cell-title">
+										手机号：
+									</span>
+									<span class="cell-input">
+										<input type="text" name="phone" class="input-pro" placeholder="手机号" />
+									</span>
+								</span>
+							</div><!--
+							--><div class="w-half in va-m">
+								<span class="xyz-table pl-20">
+									<span class="cell-title">
+										联系人：
+									</span>
+									<span class="cell-input">
+										<input type="text" name="phone" class="input-pro" placeholder="联系人" />
+									</span>
+								</span>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</form>
 		</div>
 		<!-- buy new module end -->	
 	</div>

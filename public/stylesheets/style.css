@@ -33,7 +33,12 @@ html {
 .line-1{ border-top:solid 1px #e5e5e5}
 .line-b{border-bottom:solid 1px #e5e5e5}
 
-.w-256{width:256px;}
+.w-half{width:50%;}
+.w-60 {width: 60px !important;}
+
+.h-100 {
+	height: 100px;
+}
 
 .f-18{ font-size: 18px}
 .f-14{ font-size:14px}
@@ -165,6 +170,39 @@ form .validate-has-error, form label.error {
 form .callback-has-error {
   color: red !important; 
 }
+form .input-pro{
+  width: 100%;
+  border: 0px solid #d0d6d9;
+  color: #969b9e;
+  transition: border-color 0.2s;
+  -webkit-transition: border-color 0.2s;
+  -moz-transition: border-color 0.2s;
+  -o-transition: border-color 0.2s;
+  resize:none;
+  vertical-align: middle;
+  display: block;
+  padding: 0;
+  overflow: auto;
+}
+form .input-pro:focus{
+  outline:0px;
+}
+form select{
+  position:absolute;
+  top:0px;
+  left: 0px;
+  opacity: 0;
+}
+form .select-drop{
+  position: absolute;
+  width: 20px;
+  height: 42px;
+  background:url(../image/icons/icon_dorpdown.png) no-repeat center center;
+  background-size: 70%;
+  top: 0px;
+  right: 0px;
+}
+
 .btn{display:inline-block;padding:8px 12px;text-align: center;white-space: nowrap;vertical-align: middle; border:none; font-size:20px; cursor:pointer;}
 .btn-block{display:block; width:100%}
 /*灰色*/
@@ -206,8 +244,41 @@ form .callback-has-error {
 .iconbuttom img{ height:20px; vertical-align: middle;}
 .header_title{width:100%; line-height: 45px; text-align:center; color:#ffffff}
 
+.xyz-table{
+	width: 100%;
+	display:table;
+}
 
-.xyz-list {
+.xyz-table .cell-title{
+	width:100px;
+	padding:10px 0;
+	color:#303538;
+	vertical-align:top;
+	display:table-cell;
+}
+
+.xyz-table .divider-l{
+	border-left:1px solid #01af63;
+}
+
+.xyz-table .divider-r{
+	border-right:1px solid #01af63;
+}
+
+.xyz-table .cell-input{
+	padding:10px 0;
+	display:table-cell;
+	position:relative;
+}
+
+.xyz-list li{
+	border-bottom: 1px solid #01af63;
+	padding:0 15px;
+}
+
+
+
+/* .xyz-list {
     display: block;
     background-color: #ffffff;
 }
@@ -228,15 +299,15 @@ form .callback-has-error {
             text-align: center;
             border-right: 1px solid #01af63;
         }
-    .xyz-list li .td {
-        margin-left: 79px;
-        padding: 16px 0;
-        display: block;
-        color: #282828;
-        word-wrap: break-word;
-        word-break: break-all;
-        border-left: 1px solid #01af63;
-    }
+		.xyz-list li .td {
+			margin-left: 79px;
+			padding: 16px 0;
+			display: block;
+			color: #282828;
+			word-wrap: break-word;
+			word-break: break-all;
+			border-left: 1px solid #01af63;
+		}
         .xyz-list li input ,.xyz-list li textarea,.xyz-list li select{
             display: block;
             width: 100%;
@@ -248,13 +319,11 @@ form .callback-has-error {
         .xyz-list li textarea, .xyz-list li select {
             border: none;
         }
-        .xyz-list li select {
-            opacity: 1;
-        }
+
         .xyz-list li.white_box {
             background-color: #fff;
             padding: 10px 0;
-        }
+        } */
 /*验证码*/
 .verifyCode-iput {
     width: 100%;
